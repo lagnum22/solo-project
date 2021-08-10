@@ -1,0 +1,19 @@
+{
+  "name": "moneytracker",
+  "version": "1.0.0",
+  "description": "Track your yearly expenses",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lagnum22/solo-project.git"
+  },
+  "author": "Wesley Mungal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lagnum22/solo-project/issues"
+  },
+  "homepage": "https://github.com/lagnum22/solo-project#readme"
+}
