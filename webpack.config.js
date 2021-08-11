@@ -5,8 +5,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "build"), //tells webpack where to emit the bundles(not created until you run build)
     filename: "bundle.js",
-  },
-  mode: "production", //this is default value- we are creating a minified and ugly bundle to make faster code delivery
+  },//setting mode to be the "environment variable"
+  mode: process.env.NODE_ENV, //switched process.env.NODE_ENV this will be flexible to hold both production/development setting
   module: {
     rules: [
       {
@@ -25,4 +25,8 @@ module.exports = {
       },
     ],
   }, //closes module object
+  devServer: {
+    hot: true,
+    publicPath: "/build/",
+  },
 }; //closes module.expots

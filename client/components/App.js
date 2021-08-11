@@ -6,7 +6,7 @@ class App extends Component {
   }
 
   render() {
-    return <div>Hello Wes! You have successfully bundled!</div>;
+    return <div>Hello Wes! You successfully bundled!</div>;
   }
 }
 
