@@ -23,9 +23,24 @@ app.use("/build", express.static(path.join(__dirname, "../build")));
 app.get("/", (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, "../index.html"));
 });
-//this tests backend
+
+//this tests backend for createing a new user
 app.post("/new", userController.createUser, (req, res) => {
-  res.send("user created successfully");
+  res.json(res.locals.user);
 });
 
+//this catches any requests to an unknown route
+app.use((req, res) => res.sendStatus(404));
+
+//configure global error handler:
+app.use((err, req, res, next) => {
+  const defaultError = {
+    log: "Unknown Middleware error",
+    status: 400,
+    message: { err: "An error occured" },
+  };
+  const errObj = Object.assign(defaultError, err);
+  console.log("Error Message: ", errObj.message);
+  return res.status(errObj.status).json(errObj.message);
+});
 app.listen(3000); //listens on port 3000 -> http://localhost:3000/
