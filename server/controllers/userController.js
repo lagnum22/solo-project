@@ -4,6 +4,7 @@ const userController = {};
 
 userController.createUser = (req, res, next) => {
   //write code to create user in db
+
   next();
 };
 
