@@ -8,10 +8,15 @@
   width: 1000px;
   background-color: azure;
   border: 2px solid black;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr); */
   /* column-gap: 10px;
   justify-content: center; */
+}
+.login-div {
+  width: 100%;
+  background-color: bisque;
+  height: 20%;
 }
 
 .month-box {

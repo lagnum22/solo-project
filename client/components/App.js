@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Month from "./Month";
+import Login from "./Login";
 
 class App extends Component {
   constructor() {
@@ -12,18 +13,10 @@ class App extends Component {
       <div>
         Hello Wes! You successfully bundled!
         <div className="main-container">
+          <Login />
+          {/* <Month />
           <Month />
-          <Month />
-          <Month />
-          <Month />
-          <Month />
-          <Month />
-          <Month />
-          <Month />
-          <Month />
-          <Month />
-          <Month />
-          <Month />
+          <Month /> */}
         </div>
       </div>
     );
