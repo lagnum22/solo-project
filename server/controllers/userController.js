@@ -19,7 +19,30 @@ userController.createUser = (req, res, next) => {
 };
 
 userController.verifyUser = (req, res, next) => {
-  next();
+  User.findOne({
+    username: req.body.username,
+    password: req.body.password,
+  })
+    .then((result) => {
+      console.log("this result of User.findOne: ", result);
+      if (result === null) {
+        res.locals.result = "User password Error";
+        //return next({ message: `password invalid ${err}` });
+        throw new Error(
+          "It's either your password is wrong or your user name is wrong"
+        );
+        // return next();
+      }
+      if (result.password === req.body.password) {
+        res.locals.result = result;
+        return next();
+      }
+
+      return next(); //dont get stuck in middleware
+    })
+    .catch((err) =>
+      next({ message: `userController.verifyUser: Error: ${err}` })
+    );
 };
 
 module.exports = userController;

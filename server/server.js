@@ -29,6 +29,10 @@ app.post("/new", userController.createUser, (req, res) => {
   res.json(res.locals.user);
 });
 
+//this is to login a user
+app.post("/login", userController.verifyUser, (req, res) => {
+  res.json(res.locals.result); //not sure if this is what I'm supposed to return
+});
 //this catches any requests to an unknown route
 app.use((req, res) => res.sendStatus(404));
 
@@ -37,10 +41,11 @@ app.use((err, req, res, next) => {
   const defaultError = {
     log: "Unknown Middleware error",
     status: 400,
-    message: { err: "An error occured" },
+    message: { err: "Global Default Error Message: An error occured" },
   };
   const errObj = Object.assign(defaultError, err);
   console.log("Error Message: ", errObj.message);
   return res.status(errObj.status).json(errObj.message);
 });
+
 app.listen(3000); //listens on port 3000 -> http://localhost:3000/
