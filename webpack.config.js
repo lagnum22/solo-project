@@ -19,6 +19,10 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/i, //style loader injects CSS into DOM
+        use: ["style-loader", "css-loader"], //css loader interprets @import and url()
+      },
     ],
   }, //closes module object
 }; //closes module.expots
