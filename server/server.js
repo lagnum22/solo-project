@@ -9,7 +9,7 @@ const mongoURI =
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once("open", () => {
-  console.log("Connected to Database");
+  console.log("Connected to Database!");
 });
 
 //* handle parsing request body
@@ -23,7 +23,7 @@ app.use("/build", express.static(path.join(__dirname, "../build")));
 app.get("/", (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, "../index.html"));
 });
-
+//this tests backend
 app.post("/new", userController.createUser, (req, res) => {
   res.send("user created successfully");
 });

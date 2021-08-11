@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        Hello Wes! You successfully bundled!
+        Hello Wes! You successfully bundle!
         <div className="main-container">
           <Login />
           {/* <Month />
