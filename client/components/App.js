@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
 class App extends Component {
-  constructor(props) {}
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return <div>Hello Wes! You have successfully bundled!</div>;

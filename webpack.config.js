@@ -7,4 +7,18 @@ module.exports = {
     filename: "bundle.js",
   },
   mode: "production", //this is default value- we are creating a minified and ugly bundle to make faster code delivery
+  module: {
+    rules: [
+      {
+        test: /\.jsx?/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
+      },
+    ],
+  }, //closes module object
 }; //closes module.expots
