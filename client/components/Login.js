@@ -2,12 +2,31 @@ import React, { Component } from "react";
 import MainContainer from "./MainContainer";
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       isLoggedIn: false,
       username: "",
       password: "",
+      totalIncome: 100000000000,
+      totalExpenditures: 5050,
+      netSavings: function () {
+        return this.totalIncome - this.totalExpenditures;
+      },
+      months: [
+        { month: "January", income: 8000, expense: 0 },
+        { month: "February", income: 0, expense: 0 },
+        { month: "March", income: 0, expense: 0 },
+        { month: "April", income: 0, expense: 0 },
+        { month: "May", income: 0, expense: 0 },
+        { month: "June", income: 0, expense: 0 },
+        { month: "July", income: 0, expense: 0 },
+        { month: "August", income: 0, expense: 0 },
+        { month: "September", income: 0, expense: 0 },
+        { month: "October", income: 0, expense: 0 },
+        { month: "November", income: 0, expense: 0 },
+        { month: "December", income: 0, expense: 0 },
+      ],
     };
   }
   handleSubmit = (e) => {
@@ -49,7 +68,9 @@ class Login extends Component {
       password: e.target.value,
     });
   };
-
+  handleIncomeChange = (e) => {
+    this.setState({ income: e.target.value });
+  };
   render() {
     const login = (
       <div>
@@ -68,7 +89,7 @@ class Login extends Component {
             <span>
               <label>
                 Password:
-                <input type="text" onChange={this.handlePassChange} />
+                <input type="password" onChange={this.handlePassChange} />
               </label>
             </span>
             <button type="submit">Submit</button>
@@ -81,7 +102,12 @@ class Login extends Component {
       return (
         <div>
           {login}
-          <MainContainer />
+          <MainContainer
+            totalIncome={this.state.totalIncome}
+            totalExpenditures={this.state.totalExpenditures}
+            netSavings={this.state.netSavings()}
+            months={this.state.months}
+          />
         </div>
       );
     } else {
