@@ -2,7 +2,7 @@ import React from "react";
 import TotalsDisplay from "./TotalsDisplay";
 import Month from "./Month";
 
-//presenation component that will hold the totals box
+//presenational component that will hold the totals box
 const MainContainer = () => {
   return (
     <div className="main-container">

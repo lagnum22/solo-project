@@ -34,7 +34,7 @@ userController.verifyUser = (req, res, next) => {
         // return next();
       }
       if (result.password === req.body.password) {
-        res.locals.result = result;
+        res.locals.result = true; //sending true back to frontend
         return next();
       }
 
