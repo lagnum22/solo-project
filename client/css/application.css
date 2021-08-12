@@ -1,33 +1,36 @@
 * {
-  background-color: aqua;
+  /* background-color: aqua; */
+  box-sizing: border-box;
+}
+.header {
+  text-align: center;
+}
+.login-div {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1em;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: 1px solid whitesmoke;
+  background-color: mediumspringgreen;
 }
 
 .main-container {
-  margin: auto;
-  height: 1000px;
-  width: 1000px;
-  background-color: azure;
-  border: 2px solid black;
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr); */
-  /* column-gap: 10px;
-  justify-content: center; */
-}
-.login-div {
-  width: 100%;
-  background-color: bisque;
-  height: 20%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1em;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: 1px solid whitesmoke;
+  background-color: mediumseagreen;
 }
 
-.month-box {
-  height: 200px;
-  width: 200px;
-  /* border: 2px solid black; */
-  background-color: cadetblue;
-
-  padding: 0.5em;
-  margin: auto;
-  font-size: 0.8em;
-  border: 1px solid #e4e4e4;
+.total-box {
+  padding: 1em;
+  width: 95%;
+  margin: 1em auto;
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2);
+  border: 1px solid #e4e4e4;
+  background-color: lightcyan;
+  /* line-height: 1.5em; */
 }
