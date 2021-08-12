@@ -11,9 +11,32 @@ class Login extends Component {
     };
   }
   handleSubmit = (e) => {
-    alert(`${this.state.username} and ${typeof this.state.password}`);
+    // alert(`${this.state.username} and ${typeof this.state.password}`);
+    console.log(
+      `${typeof this.state.username} and ${typeof this.state.password}`
+    );
+    console.log("values:", `${this.state.username} and ${this.state.password}`);
     //send async request to db
-    
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: this.state.username,
+        password: this.state.password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("this is data you are receiving ;", data);
+        if (data === true) {
+          this.setState({ isLoggedIn: data });
+
+          // this.setState({ password: "" });
+        }
+      });
+    this.setState({ password: "" });
     e.preventDefault();
   };
   handleUserChange = (e) => {
@@ -67,8 +90,30 @@ class Login extends Component {
   } //closes render function
 }
 
+export default Login;
+
 // const Login = () => {
 //   return <div className="login-div"> </div>;
 // };
 
-export default Login;
+// handleSubmit = (e) => {
+//   // alert(`${this.state.username} and ${typeof this.state.password}`);
+//   console.log(
+//     `${typeof this.state.username} and ${typeof this.state.password}`
+//   );
+//   //send async request to db
+//   fetch("/login", {
+//     method: "POST",
+//     body: JSON.stringify({
+//       username: this.state.username,
+//       password: this.state.password,
+//     }),
+//   })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       console.log("this is data you are receiving ;", data);
+//       this.setState({ isLoggedIn: data });
+//     });
+
+//   e.preventDefault();
+// };
