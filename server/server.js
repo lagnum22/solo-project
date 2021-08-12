@@ -31,7 +31,7 @@ app.post("/new", userController.createUser, (req, res) => {
 
 //this is to login a user
 app.post("/login", userController.verifyUser, (req, res) => {
-  res.json(res.locals.result); //not sure if this is what I'm supposed to return
+  res.json(res.locals.result); //evenntually, front end will receive
 });
 //this catches any requests to an unknown route
 app.use((req, res) => res.sendStatus(404));
