@@ -30,6 +30,8 @@
 
 .total-box {
   padding: 1em;
+  font-size: 20px;
+  text-align: center;
   width: 95%;
   margin: 1em auto;
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2);
