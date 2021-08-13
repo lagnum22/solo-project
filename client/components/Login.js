@@ -5,16 +5,16 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: true,
+      isLoggedIn: false,
       username: "",
       password: "",
       totalIncome: 1000000,
-      totalExpenditures: 500,
+      totalExpenditures: 300,
       netSavings: function () {
         return this.totalIncome - this.totalExpenditures;
       },
       months: [
-        { month: "January", income: 800, expense: 0 },
+        { month: "January", income: 90, expense: 0 },
         { month: "February", income: 0, expense: 0 },
         { month: "March", income: 0, expense: 0 },
         { month: "April", income: 0, expense: 0 },
@@ -101,7 +101,7 @@ class Login extends Component {
     if (this.state.isLoggedIn) {
       return (
         <div>
-          {login}
+          {/* {login} */}
           <MainContainer
             totalIncome={this.state.totalIncome}
             totalExpenditures={this.state.totalExpenditures}
