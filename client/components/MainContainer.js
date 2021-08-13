@@ -8,22 +8,9 @@ const MainContainer = ({
   totalExpenditures,
   netSavings,
   months,
-}) => {
-  months: [
-    { month: "January", income: 40, expense: 0 },
-    { month: "February", income: 0, expense: 0 },
-    { month: "March", income: 0, expense: 0 },
-    { month: "April", income: 0, expense: 0 },
-    { month: "May", income: 0, expense: 0 },
-    { month: "June", income: 0, expense: 0 },
-    { month: "July", income: 0, expense: 0 },
-    { month: "August", income: 0, expense: 0 },
-    { month: "September", income: 0, expense: 0 },
-    { month: "October", income: 0, expense: 0 },
-    { month: "November", income: 0, expense: 0 },
-    { month: "Decemver", income: 0, expense: 0 },
-  ];
 
+  setValueState,
+}) => {
   return (
     <div className="main-container">
       <TotalsDisplay
@@ -34,6 +21,8 @@ const MainContainer = ({
       <div className="months-container">
         <h1>2021</h1>
         <div className="all-months">
+          <Month months={months} setValueState={setValueState} />
+          {/* <Month months={months} />
           <Month months={months} />
           <Month months={months} />
           <Month months={months} />
@@ -43,9 +32,7 @@ const MainContainer = ({
           <Month months={months} />
           <Month months={months} />
           <Month months={months} />
-          <Month months={months} />
-          <Month months={months} />
-          <Month months={months} />
+          <Month months={months} /> */}
         </div>
       </div>
     </div>

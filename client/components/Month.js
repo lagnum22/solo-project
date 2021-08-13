@@ -1,6 +1,12 @@
 import React from "react";
 
-const Month = ({ months, onChange }) => {
+const Month = ({ months, setValueState }) => {
+  const incomeHandler = (e) => {
+    //PASS AN INDEX AS SECOND VARIABLE
+    setValueState(e.target.value);
+  };
+
+  //use indicies to reference each month state
   return (
     <div className="month">
       <h3>{months[0].month}</h3>
@@ -11,15 +17,15 @@ const Month = ({ months, onChange }) => {
           <input
             type="text"
             name="name"
-            value={months[0].income}
-            onChange={onChange}
+            defaultValue={months[0].income}
+            onChange={incomeHandler}
           />
         </label>
       </p>
       <p>
         <strong>Expense: </strong>
         <label>
-          <input type="text" name="name" value={months[0].expense} />
+          <input type="text" name="name" defaultValue={months[0].expense} />
         </label>
       </p>
     </div>

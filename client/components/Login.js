@@ -5,7 +5,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false,
+      isLoggedIn: true,
       username: "",
       password: "",
       totalIncome: 1000000,
@@ -14,7 +14,7 @@ class Login extends Component {
         return this.totalIncome - this.totalExpenditures;
       },
       months: [
-        { month: "January", income: 90, expense: 0 },
+        { month: "January", income: 0, expense: 0 },
         { month: "February", income: 0, expense: 0 },
         { month: "March", income: 0, expense: 0 },
         { month: "April", income: 0, expense: 0 },
@@ -68,8 +68,13 @@ class Login extends Component {
       password: e.target.value,
     });
   };
-  handleIncomeChange = (e) => {
-    this.setState({ income: e.target.value });
+  setValueState = (value, INDEX) => {
+    //access correct property
+    //there is a difference betwen setting state and handling event
+    //we can pass the functionailty to change the state down, but where the event is taking place has exist in that component.
+    //pass an index here
+    this.setState((this.state.months[0].income = value));
+    console.log(this.state);
   };
   render() {
     const login = (
@@ -101,12 +106,12 @@ class Login extends Component {
     if (this.state.isLoggedIn) {
       return (
         <div>
-          {/* {login} */}
           <MainContainer
             totalIncome={this.state.totalIncome}
             totalExpenditures={this.state.totalExpenditures}
             netSavings={this.state.netSavings()}
             months={this.state.months}
+            setValueState={this.setValueState}
           />
         </div>
       );
